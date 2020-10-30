@@ -1,5 +1,5 @@
 # calendar
-# author : guminchi 
+# author : MinChi Gu
 #820002446@qq.com
 MyCalendarForHotel
 ************************************

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>calendar</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width" />
+  <script type="text/javascript" src="./jquery.min.js"></script>
+  <script type="text/javascript" src="./calendar.js"></script>
+  <style>
+    ul,
+    li,
+    p,
+    body {
+      list-style-type: none;
+      border: none;
+      margin: 0;
+      padding: 0;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    #clickMe {
+      padding: 0;
+      margin: 0;
+    }
+
+    #screen {
+      z-index: 99;
+      display: none;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    #calendar {
+      z-index: 999;
+      width: 100%;
+      position: fixed;
+      bottom: -450px;
+      animation-duration: 0.2s;
+      -webkit-animation-duration: 0.2s;
+      animation-iteration-count: 1;
+      -webkit-animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+      -webkit-animation-fill-mode: forwards;
+    }
+
+    li {
+      width: 14.28%;
+      height: 50px;
+      float: left;
+      font-size: 16px;
+      background: #fff;
+    }
+
+    .my_calendar {
+      width: 100%;
+      background: #fff;
+    }
+
+    .title {
+      height: 40px;
+      text-align: center;
+      line-height: 40px;
+      padding: 0 20px;
+      background: #f5f5f5;
+    }
+
+    .title span:first-child {
+      float: left;
+      display: inline-block;
+      color: #4289ff;
+    }
+
+    .title span:last-child {
+      float: right;
+      display: inline-block;
+      color: #4289ff;
+      opacity: 0;
+    }
+
+    .week {
+      height: 50px;
+      line-height: 50px;
+      width: 100%;
+    }
+
+    .week li {
+      font-size: 14px;
+      background: #f5f5f5;
+    }
+
+    .content {
+      height: 360px;
+      overflow: auto;
+    }
+
+    .ymp {
+      text-align: center;
+    }
+
+    @keyframes openCalendar {
+      from {
+        bottom: -450px;
+      }
+
+      to {
+        bottom: 0;
+      }
+    }
+
+    @-webkit-keyframes openCalendar {
+      from {
+        bottom: -450px;
+      }
+
+      to {
+        bottom: 0px;
+      }
+    }
+
+    @keyframes closeCalendar {
+      from {
+        bottom: 0px;
+      }
+
+      to {
+        bottom: -450px;
+      }
+    }
+
+    @-webkit-keyframes closeCalendar {
+      from {
+        bottom: 0px;
+      }
+
+      to {
+        bottom: -450px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="calendar"></div>
+</body>
+<button id="clickMe">clickMe</button>
+
+</html>
+
+<script>
+  var calendar = new CalendarDate(closeFn);
+  var durationDay = calendar.durationDay;
+
+  calendar.setDisableDays(['2020-11-1', '2020-11-10']);
+  calendar.setDisableDays({ startDay: '2020-11-3', endDay: '2020-11-8' });
+
+  function closeFn() {
+    console.log('yourCallbackAfterCancle')
+    console.log('durationDay:', durationDay)
+  }
+
+  $('#clickMe').click(function () {
+    calendar.openCalendar();
+  })
+</script>

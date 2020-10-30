@@ -1,5 +1,6 @@
 # calendar
-# author : guminchi 820002446@qq.com
+# author : guminchi 
+#820002446@qq.com
 MyCalendarForHotel
 ************************************
 var calendar = new CalendarDate(closeFn);
